@@ -1,0 +1,12 @@
+web:
+  image: nginx
+  volumes:
+   - ${PWD}/default.conf.template:/etc/nginx/templates/default.conf.template:ro
+   - web_logs:/var/log/nginx/:rw
+  ports:
+   - 80:80
+   - 443:443
+  environment:
+   - ONE_SERVER_NAME=127.0.0.1
+   - ONE_PROXY_PORT=9000
+   - ONE_PROXY_HOST=127.0.0.1
